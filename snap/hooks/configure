@@ -1,3 +1,32 @@
 #!/bin/sh
 
 # do nothing for now
+#!/bin/sh
+
+# do some basic setup here like set values in config file
+# Initialize the sleep time to a default
+snapctl set sleep-time=5
+echo "sleep time set"
+# do nothing for now ( we can add all configurations here like providing ubuntu ID email and call to launch browser wiith page to provide wifi ID and password )
+while true; do
+    # First, determine our rate by determining how long we should sleep
+    sleep_time="$(snapctl get sleep-time)"
+
+    # Now be nice and greet
+    echo "Hello, World!"
+
+    # Now sleep for the time requested
+    sleep "$sleep_time"
+    echo "Now creating folderstructure to skip on boot conf"
+    sudo mkdir /var/lib/console-conf
+    sudo touch /var/lib/console-conf/complete
+    echo "file /var/lib/console-conf/complete created"
+    sleep "$sleep_time"
+
+echo "Now add Netplan"
+    sudo mkdir /etc/netplan
+    sudo cp bin/00-snapd-config.yaml  /etc/netplan
+    echo "cp bin/00-snapd-config.yaml  /etc/netplan done"
+    sleep "$sleep_time"
+
+done
