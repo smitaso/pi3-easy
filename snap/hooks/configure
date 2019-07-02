@@ -26,7 +26,7 @@ while true; do
 echo "Now add Netplan"
     sudo mkdir /etc/netplan
     sudo cp bin/00-snapd-config.yaml  /etc/netplan
-    echo "cp bin/00-snapd-config.yaml  /etc/netplan done"
+    echo "cp 00-snapd-config.yaml  /etc/netplan done"
     sleep "$sleep_time"
 
 done
