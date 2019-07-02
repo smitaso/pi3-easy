@@ -75,6 +75,10 @@ parts:
       - dctrl-tools
       - sed
       - wget
+      
+hooks:
+  configure:
+    plugs: [network]      
 
 slots:
   bcm-gpio-0:
